@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.santiago.retrofit.data.model.Product
-import com.santiago.retrofit.data.repositories.RemoteConectecition
+import com.santiago.retrofit.data.repositories.RemoteConectection
 import kotlinx.coroutines.launch
 
 class DetailViewModel(private val productId: Int) : ViewModel() {
@@ -20,7 +20,7 @@ class DetailViewModel(private val productId: Int) : ViewModel() {
         viewModelScope.launch {
             try {
                 _detail.value = UiState(loading = true)
-                val product = RemoteConectecition.service.getProduct(productId)
+                val product = RemoteConectection.service.getProduct(productId)
                 _detail.value = UiState(product = product)
             } catch (e: Exception) {
                 _detail.value = UiState(error = e.message)

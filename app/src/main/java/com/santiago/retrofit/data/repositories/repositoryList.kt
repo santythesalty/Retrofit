@@ -7,7 +7,7 @@ import kotlinx.coroutines.withContext
 object repositoryList {
     suspend fun getProducts(): List<Product> {
         return withContext(Dispatchers.IO) {
-            RemoteConectecition.service.getProducts()
+            RemoteConectection.service.getProducts()
         }
     }
 } 
